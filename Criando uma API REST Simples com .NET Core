@@ -1,0 +1,50 @@
+
+Criar uma API REST simples com .NET Core envolve a criação de uma aplicação que fornece serviços web para interagir com recursos por meio de operações HTTP padrão, como GET, POST, PUT e DELETE. Vou lhe dar um guia básico sobre como criar uma API REST simples com .NET Core:
+
+Passo 1: Configurar o Ambiente
+
+Certifique-se de que você tem o ambiente .NET Core instalado. Você pode fazer o download em dotnet.microsoft.com.
+Passo 2: Criar um Projeto
+
+Abra um terminal e navegue até a pasta onde você deseja criar seu projeto.
+Execute o seguinte comando para criar um novo projeto de API:
+shell
+Copy code
+dotnet new webapi -n NomeDoProjeto
+Substitua NomeDoProjeto pelo nome que desejar.
+
+Passo 3: Definir Modelos
+
+Crie classes de modelo para representar os recursos que sua API manipulará. Por exemplo, se você estiver criando uma API para gerenciar tarefas, você pode criar uma classe Task com propriedades como Id, Title, Description, etc.
+Passo 4: Criar um Controlador
+
+Crie um controlador que será responsável por lidar com as operações HTTP para seus recursos. Por exemplo, para a classe Task, você pode criar um controlador TasksController.
+csharp
+Copy code
+[Route("api/[controller]")]
+[ApiController]
+public class TasksController : ControllerBase
+{
+    // Implemente os métodos GET, POST, PUT, DELETE para interagir com os recursos.
+}
+Passo 5: Configurar o Roteamento
+
+No arquivo Startup.cs, configure o roteamento para mapear as rotas da API. Adicione o seguinte código ao método Configure:
+csharp
+Copy code
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
+Passo 6: Implementar Operações CRUD
+
+No controlador, implemente os métodos HTTP para criar, ler, atualizar e excluir recursos. Use atributos como [HttpGet], [HttpPost], [HttpPut] e [HttpDelete] para mapear os métodos HTTP para ações em seu controlador.
+Passo 7: Executar e Testar a API
+
+Execute o projeto usando dotnet run e teste a API usando uma ferramenta como o Postman ou o Insomnia.
+Passo 8: Adicionar Documentação (Opcional)
+
+Você pode adicionar documentação à sua API usando uma ferramenta como o Swagger para facilitar a compreensão e o teste dos endpoints.
+Passo 9: Publicar e Hospedar (Opcional)
+
+Se desejar tornar sua API acessível na web, você pode publicá-la em um serviço de hospedagem, como o Azure, AWS ou Heroku.
